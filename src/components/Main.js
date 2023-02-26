@@ -1,5 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function Main() {
-  return <div>Main</div>;
+  const inputRef = useRef(null);
+
+  return (
+    <div className="container">
+      <h1 className="title text-light">Quiz App</h1>
+
+      <ol>
+        <li>rule 1</li>
+        <li>rule 2</li>
+      </ol>
+
+      <form id="form">
+        <input ref={inputRef} type="text" placeholder="Username*" />
+      </form>
+
+      <div className="start">
+        <Link className="btn" to={"quiz"}>
+          Start Quiz
+        </Link>
+      </div>
+    </div>
+  );
 }
