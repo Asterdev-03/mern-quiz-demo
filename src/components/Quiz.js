@@ -1,8 +1,18 @@
-import React from "react";
+/** Displays the quiz page */
 
+import React, { useEffect } from "react";
 import Questions from "./Questions";
 
+/** create store input */
+import { useSelector } from "react-redux";
+
 export default function Quiz() {
+  const state = useSelector((state) => state);
+
+  useEffect(() => {
+    console.log(state);
+  });
+
   /** next button event handler */
   function onNext() {
     console.log("next click");
@@ -16,6 +26,7 @@ export default function Quiz() {
   return (
     <div className="container">
       <h1 className="title text-light">Quiz App</h1>
+
       {/* display questions */}
       <Questions />
 

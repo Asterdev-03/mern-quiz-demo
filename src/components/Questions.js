@@ -7,11 +7,11 @@ export default function Questions() {
   const question = data[0];
 
   useEffect(() => {
-    console.log(data);
+    //console.log(data);
   });
 
   function onSelect() {
-    console.log("radio btn change");
+    // console.log("radio btn change");
   }
 
   return (
