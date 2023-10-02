@@ -3,24 +3,35 @@
 import React, { useEffect } from "react";
 import Questions from "./Questions";
 
+import { moveNextQuestion, movePrevQuestion } from "../hooks/FetchQuestion";
+
 /** create store input */
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Quiz() {
-  const state = useSelector((state) => state);
+  const { queue, trace } = useSelector((state) => state.questions);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log(state);
+    console.log(trace);
   });
 
   /** next button event handler */
   function onNext() {
     console.log("next click");
+    /** update the trace value by one using moveNextAction */
+    if (trace < queue.length) {
+      dispatch(moveNextQuestion());
+    }
   }
 
   /** prev button event handler */
   function onPrev() {
     console.log("prev click");
+    /** update the trace value by one using movePrevAction */
+    if (trace > 0) {
+      dispatch(movePrevQuestion());
+    }
   }
 
   return (
